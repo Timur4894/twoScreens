@@ -2,10 +2,10 @@ import { StyleSheet, View, Text, ScrollView, Pressable } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import Inputsx from "../components/UI/Input";
-import PurpleButton from "../components/UI/PurpleButton";
 import { useState } from "react"; 
 import { useNavigation } from "@react-navigation/native";
 import ConfirmButton from "../components/UI/ConfirmButton";
+// import { StackNavigationProp } from '@react-navigation/stack';
 
 
 function AddressForm(){
@@ -52,7 +52,7 @@ function AddressForm(){
             <View style={styles.topContainer}>
                 
                 <Pressable onPress={()=>{navigation.navigate('SponsoredRiddle')}}>
-                    <Ionicons name='chevron-back-outline' size={26} style={{marginTop: 3}}/> 
+                    <Ionicons name='chevron-back-outline' size={26} /> 
                 </Pressable>
     
                 <Text style={{fontSize: 16, fontFamily: 'Nunito_700Bold', marginLeft: 20}}>
@@ -101,7 +101,6 @@ const styles = StyleSheet.create({
     topContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // alignContent: 'flex-start',
         marginHorizontal: 16,
         marginTop: 52,
     },

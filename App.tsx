@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import SponsoredRiddle from './screens/SponsoredRiddle';
 import AddressForm from './screens/AddressForm';
 

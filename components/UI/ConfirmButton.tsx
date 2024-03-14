@@ -1,10 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Pressable } from "react-native";
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
-import { useNavigation } from "@react-navigation/native";
 
 function ConfirmButton({onPress}:{onPress: any}) {
-    const navigation = useNavigation();
 
     let [fontsLoaded] = useFonts({
         Nunito_400Regular,

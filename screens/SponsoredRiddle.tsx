@@ -3,11 +3,9 @@ import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import PurpleButton from "../components/UI/PurpleButton";
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
-import { useNavigation } from "@react-navigation/native";
 
 
 function SponsoredRiddle(){
-    const navigation = useNavigation();
 
     let [fontsLoaded] = useFonts({
         Nunito_400Regular,
@@ -45,16 +43,8 @@ function SponsoredRiddle(){
                     For sponsored riddles, we offer a blend of digital and non-digital rewards! To ensure you receive your prizes, kindly provide your address. Note: For now this feature is exclusively for US users. Get ready to enjoy the best of both worlds!
                 </Text>
             </View>
-            
-            
+              
             <PurpleButton/>
-
-            {/* <Pressable onPress={()=>{}}>
-                <Text style={styles.goToAllReddles}>
-                        Go To All Reddles
-                </Text>
-            </Pressable> */}
-
     
         </View>
     );
@@ -69,7 +59,6 @@ const styles = StyleSheet.create({
     },
     goToAllReddles: {
         marginBottom: 20,
-        // marginTop: 28,
         color: '#7B62F4',
         fontFamily: 'Nunito_400Regular',   
     },

@@ -2,7 +2,13 @@ import React from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
 import { useFonts, Nunito_400Regular } from '@expo-google-fonts/nunito';
 
-function Inputsx({ placeholder, headerText, onChangeText } : { placeholder:String, headerText: String, onChangeText: any}) {
+interface InputsxProps {
+    placeholder: string;
+    headerText: string;
+    onChangeText: (text: string) => void;
+}
+
+function Inputsx({ placeholder, headerText, onChangeText }: InputsxProps) {
     let [fontsLoaded] = useFonts({
         Nunito_400Regular,
     });
