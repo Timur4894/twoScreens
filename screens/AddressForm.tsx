@@ -3,12 +3,23 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import Inputsx from "../components/UI/Input";
 import { useState } from "react"; 
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
 import ConfirmButton from "../components/UI/ConfirmButton";
-// import { StackNavigationProp } from '@react-navigation/stack';
 
+//?
+type RootStackParamList = {
+    SponsoredRiddle: undefined;
+  };
+
+type SponsoredRiddleScreenNavigationProp = NavigationProp<
+  RootStackParamList,
+  'SponsoredRiddle'
+>;
+//?
 
 function AddressForm(){
+    const navigation = useNavigation<SponsoredRiddleScreenNavigationProp>();
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [streetAddress, setStreetAddress] = useState("");
@@ -22,21 +33,8 @@ function AddressForm(){
 
 
     const handleConfirmAddress = () => {
-        console.log("First Name:", firstName);
-        console.log("Last Name:", lastName);
-        console.log("Street Address:", streetAddress);
-
-        console.log("Apt_Suit_Unit:", Apt_Suit_Unit);
-        console.log("Suburb_City:", Suburb_City);
-        console.log("State:", State);
-
-        console.log("ZIP_Code:", ZIP_Code);
-        console.log("Phone_Number:", Phone_Number);
-
         // Обработка сохранения данных
     };
-
-    const navigation = useNavigation();
 
     let [fontsLoaded] = useFonts({
         Nunito_400Regular,

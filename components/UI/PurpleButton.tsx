@@ -1,10 +1,19 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Pressable } from "react-native";
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
+
+type RootStackParamList = {
+    AddressForm: undefined;
+  };
+
+type AddressFormScreenNavigationProp = NavigationProp<
+  RootStackParamList,
+  'AddressForm'
+>;
 
 function PurpleButton() {
-    const navigation = useNavigation();
+    const navigation = useNavigation<AddressFormScreenNavigationProp>();
 
     let [fontsLoaded] = useFonts({
         Nunito_400Regular,
