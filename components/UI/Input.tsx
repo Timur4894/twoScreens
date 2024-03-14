@@ -1,41 +1,28 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
-import { useFonts, Nunito_400Regular } from '@expo-google-fonts/nunito';
 
-interface InputsxProps {
+interface CustomInputProps {
     placeholder: string;
     headerText: string;
     onChangeText: (text: string) => void;
 }
 
-function Inputsx({ placeholder, headerText, onChangeText }: InputsxProps) {
-    let [fontsLoaded] = useFonts({
-        Nunito_400Regular,
-    });
-
-    if (!fontsLoaded) {
-        return null;
-    }
+function CustomInput({ placeholder, headerText, onChangeText }: CustomInputProps) {
 
     return (
         <View style={styles.container}>
     
             <View style={{marginVertical: 8}}>
-                <Text>
+                <Text style={styles.text}>
                     {headerText}
                 </Text>
             </View>
-           
-
             <TextInput
                 placeholder={placeholder}
                 style={styles.input}
                 placeholderTextColor="#9E9E9E"
                 onChangeText={onChangeText}
             />
-    
-
-            
         </View>
     )
 }
@@ -56,6 +43,9 @@ const styles = StyleSheet.create({
         fontFamily: 'Nunito_400Regular',
         fontSize: 16,
     },
+    text: {
+        fontFamily: 'Nunito_700Bold',
+    }
 });
 
-export default Inputsx;
+export default CustomInput;

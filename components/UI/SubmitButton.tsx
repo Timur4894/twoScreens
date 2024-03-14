@@ -1,12 +1,18 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Pressable } from "react-native";
 
-function ConfirmButton({onPress}:{onPress: any}) {
+interface SubmitButtonProps {
+    placeholder: string;
+    onPress: () => void;
+}
+
+function SubmitButton({placeholder, onPress} : SubmitButtonProps) {
+
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.button} onPress={onPress}>
                 <Text style={styles.buttonText}>
-                    Confirm Address 
+                    {placeholder} 
                 </Text>
             </TouchableOpacity>
         </View>
@@ -18,7 +24,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'flex-end',
-        marginTop: 44
     },
     button: {
         backgroundColor: '#7B62F4',
@@ -41,7 +46,6 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontFamily: 'Nunito_700Bold'
     },
-
 });
 
-export default ConfirmButton;
+export default SubmitButton;
