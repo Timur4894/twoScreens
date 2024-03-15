@@ -3,10 +3,12 @@ import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 import SubmitButton from "../components/UI/SubmitButton";
 import { useNavigation } from "@react-navigation/native";
 import { ScreenType } from "../App";
+import { colors } from "../constants/Colors";
 
-function SponsoredRiddle(){
+function SponsoredRiddleScreen(){
 
     const navigation = useNavigation();
+
     return(
         <View style={styles.container}>
             <View style={styles.imageContainer}>
@@ -20,13 +22,12 @@ function SponsoredRiddle(){
                     For sponsored riddles, we offer a blend of digital and non-digital rewards! To ensure you receive your prizes, kindly provide your address. Note: For now this feature is exclusively for US users. Get ready to enjoy the best of both worlds!
                 </Text>
             </View>
-            <SubmitButton placeholder="Add New Address" onPress={() => navigation.navigate(ScreenType.AddressForm)}/>
+            <SubmitButton placeholder="Add New Address" onPress={() => navigation.navigate(ScreenType.AddressFormScreen)}/>
             <Pressable onPress={()=>{}}>
                 <Text style={styles.goToAllReddles}>
                         Go To All Reddles
                 </Text>
             </Pressable>
-
         </View>
     );
 }
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     goToAllReddles: {
         marginTop: 32,
         marginBottom: 42,
-        color: '#7B62F4',
+        color: colors.purple,
         fontFamily: 'Nunito_400Regular'
     },
     titleStyle:{
@@ -81,4 +82,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SponsoredRiddle;
+export default SponsoredRiddleScreen;

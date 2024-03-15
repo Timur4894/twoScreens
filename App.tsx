@@ -1,27 +1,28 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import SponsoredRiddle from './screens/SponsoredRiddleScreen';
-import AddressForm from './screens/AddressFormScreen';
-import { StyleSheet, Text, View } from 'react-native';
+import AddressFormScreen from './screens/AddressFormScreen';
+import { StyleSheet, Text } from 'react-native';
 import HeaderButton from './components/Buttons/HeaderButton';
 import FontLoader from './constants/FontLoader';
 import InfoIcon from './components/UI/InfoIcon';
+import SponsoredRiddleScreen from './screens/SponsoredRiddleScreen';
+import { colors } from './constants/Colors';
 
 const Stack = createStackNavigator();
 
 export enum ScreenType {
-  SponsoredRiddle = 'SponsoredRiddle',
-  AddressForm = 'AddressForm',
+  SponsoredRiddleScreen = 'SponsoredRiddleScreen',
+  AddressFormScreen = 'AddressFormScreen',
 }
 
 export default function App() {
   return (
     <FontLoader>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="SponsoredRiddle">
+        <Stack.Navigator initialRouteName="SponsoredRiddleScreen">
           <Stack.Screen
-            name="SponsoredRiddle"
-            component={SponsoredRiddle}
+            name="SponsoredRiddleScreen"
+            component={SponsoredRiddleScreen}
             options={({ navigation }) => ({
               headerRight: () => (
                 <InfoIcon
@@ -52,8 +53,8 @@ export default function App() {
             })}
           />
           <Stack.Screen
-            name="AddressForm"
-            component={AddressForm}
+            name="AddressFormScreen"
+            component={AddressFormScreen}
             options={({ navigation }) => ({
               headerRight: () => (
                 <Text style={[styles.saveButton, {fontFamily: 'Nunito_700Bold'}]}>
@@ -62,7 +63,7 @@ export default function App() {
               ),
               headerLeft: () => (
                 <HeaderButton
-                  onPress={()=>{navigation.navigate('SponsoredRiddle')}}
+                  onPress={()=>{navigation.navigate(ScreenType.SponsoredRiddleScreen)}}
                   name='chevron-back-outline'
                   size={26}
                   color="black"
@@ -84,7 +85,7 @@ export default function App() {
 const styles = StyleSheet.create({
   saveButton: {
     fontSize: 16, 
-    color: "#7B62F4", 
+    color: colors.purple, 
     marginRight: 16
   },
 

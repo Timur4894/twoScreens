@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Pressable } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { colors } from "../../constants/Colors";
 
 interface SubmitButtonProps {
     placeholder: string;
@@ -7,7 +8,6 @@ interface SubmitButtonProps {
 }
 
 function SubmitButton({placeholder, onPress} : SubmitButtonProps) {
-
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.button} onPress={onPress}>
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     button: {
-        backgroundColor: '#7B62F4',
+        backgroundColor: colors.purple,
         borderRadius: 30,
         paddingVertical: 15,
         paddingHorizontal: 95,
-        shadowColor: '#5741C2',
+        shadowColor: colors.purpleShadow,
         shadowOffset: {
             width: 0,
             height: 4,

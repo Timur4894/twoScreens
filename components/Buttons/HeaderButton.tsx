@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Pressable } from "react-native";
+import { View, Pressable, StyleProp, ViewStyle } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
 type IconNames = keyof typeof Ionicons.glyphMap;
@@ -11,7 +11,7 @@ interface HeaderButtonProps {
     color?: string;  
     marginLeft?: number; 
     marginRight?: number; 
-    roundstyle?: any //????
+    roundstyle?: StyleProp<ViewStyle>;
 }
 
 const HeaderButton = ({ onPress, name, size, color="black", marginLeft = 0, marginRight = 0, roundstyle = {}} : HeaderButtonProps) => {
@@ -23,12 +23,5 @@ const HeaderButton = ({ onPress, name, size, color="black", marginLeft = 0, marg
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    button: {
-        backgroundColor: 'gray',
-        borderRadius: 999, 
-    },
-  });
 
 export default HeaderButton;

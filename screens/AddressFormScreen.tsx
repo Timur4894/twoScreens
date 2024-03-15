@@ -1,14 +1,11 @@
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { useState } from "react"; 
-import { useNavigation, NavigationProp } from "@react-navigation/native";
+// import { useNavigation, NavigationProp } from "@react-navigation/native";
 import { colors } from '../constants/Colors'; 
 import SubmitButton from "../components/UI/SubmitButton";
 import CustomInput from "../components/UI/Input";
 
-
-
-
-function AddressForm(){
+function AddressFormScreen(){
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [streetAddress, setStreetAddress] = useState("");
@@ -91,4 +88,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default AddressForm;
+export default AddressFormScreen;
