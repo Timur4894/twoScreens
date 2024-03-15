@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { colors } from "../../constants/Colors";
+import { Colors } from "../../constants/Colors";
 
 interface SubmitButtonProps {
     placeholder: string;
@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     button: {
-        backgroundColor: colors.purple,
+        backgroundColor: Colors.purple,
         borderRadius: 30,
         paddingVertical: 15,
         paddingHorizontal: 95,
-        shadowColor: colors.purpleShadow,
+        shadowColor: Colors.purpleShadow,
         shadowOffset: {
             width: 0,
             height: 4,

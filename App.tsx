@@ -1,21 +1,25 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AddressFormScreen from './screens/AddressFormScreen';
-import { StyleSheet, Text } from 'react-native';
-import HeaderButton from './components/Buttons/HeaderButton';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import FontLoader from './constants/FontLoader';
-import InfoIcon from './components/UI/InfoIcon';
 import SponsoredRiddleScreen from './screens/SponsoredRiddleScreen';
-import { colors } from './constants/Colors';
+import { Colors } from './constants/Colors';
+import { ScreenEnums } from './constants/ScreenEnums';
+import ClodeCircle from './components/svg/ClodeCircle'; 
+import Arrow from './components/svg/Arrow'; 
+import InformationIcon from './components/svg/InformationIcon'; 
 
 const Stack = createStackNavigator();
 
-export enum ScreenType {
-  SponsoredRiddleScreen = 'SponsoredRiddleScreen',
-  AddressFormScreen = 'AddressFormScreen',
-}
-
 export default function App() {
+
+  const SaveButton = () => (
+    <Text style={styles.saveButton}>
+      Save
+    </Text> 
+  );
+
   return (
     <FontLoader>
       <NavigationContainer>
@@ -25,28 +29,16 @@ export default function App() {
             component={SponsoredRiddleScreen}
             options={({ navigation }) => ({
               headerRight: () => (
-                <InfoIcon
-                  onPress={() => {}}
-                  color='black'
-                  size={13}
-                  marginRight={16}
-                />
+                <View style={styles.TopRightButtonsMargin}>
+                  <InformationIcon/>
+                </View>
               ),
               headerLeft: () => (
-                  <HeaderButton
-                    onPress={() => {}}
-                    name='close'
-                    size={24}
-                    color="#9EA3B1"
-                    marginLeft={16}
-                    roundstyle={{
-                      backgroundColor: '#EAEDF4',
-                      borderRadius: 999, 
-                      width: 32,
-                      height: 32,
-                      padding: 4
-                    }}
-                  />
+                <View style={styles.TopLeftButtonsMargin}>
+                  <Pressable onPress={() => {}}>  
+                    <ClodeCircle/>
+                  </Pressable>  
+                </View>   
               ),
               headerTitle: '',
               headerShadowVisible: false, 
@@ -56,24 +48,17 @@ export default function App() {
             name="AddressFormScreen"
             component={AddressFormScreen}
             options={({ navigation }) => ({
-              headerRight: () => (
-                <Text style={[styles.saveButton, {fontFamily: 'Nunito_700Bold'}]}>
-                  Save
-                </Text>
-              ),
+              headerRight: () => <SaveButton/>,
               headerLeft: () => (
-                <HeaderButton
-                  onPress={()=>{navigation.navigate(ScreenType.SponsoredRiddleScreen)}}
-                  name='chevron-back-outline'
-                  size={26}
-                  color="black"
-                  marginLeft={16}
-                />
+                <View style={styles.TopLeftButtonsMargin}>
+                  <Pressable onPress={() => navigation.navigate(ScreenEnums.SponsoredRiddleScreen)}>
+                    <Arrow/>
+                  </Pressable>
+                </View>
               ),
               headerTitle: 'Address',
-              headerTitleStyle: {fontSize: 16, fontFamily: 'Nunito_700Bold'},
+              headerTitleStyle: styles.headerTitleStyle,
               headerShadowVisible: false, 
-              
             })}
           />
         </Stack.Navigator>
@@ -85,8 +70,26 @@ export default function App() {
 const styles = StyleSheet.create({
   saveButton: {
     fontSize: 16, 
-    color: colors.purple, 
+    color: Colors.purple, 
+    marginRight: 16,
+    fontFamily: 'Nunito_700Bold'
+  },
+  headerTitleStyle:{
+    fontSize: 16,
+    fontFamily: 'Nunito_700Bold'
+  },
+  closeCircleButton: {
+    backgroundColor: Colors.borderColor,
+    borderRadius: 999, 
+    width: 32,
+    height: 32,
+    padding: 4
+  },
+  TopLeftButtonsMargin: { 
+    marginLeft: 16
+  },
+  TopRightButtonsMargin: { 
     marginRight: 16
   },
-
+  
 });

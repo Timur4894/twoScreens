@@ -10,7 +10,7 @@ const FontLoader: React.FC<FontLoaderProps> = ({ children }) => {
         Nunito_400Regular,
         Nunito_700Bold,
     });
-
+    
     if (!fontsLoaded) {
         return null;
     }

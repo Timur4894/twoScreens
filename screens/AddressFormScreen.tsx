@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text, ScrollView } from "react-native";
 import { useState } from "react"; 
 // import { useNavigation, NavigationProp } from "@react-navigation/native";
-import { colors } from '../constants/Colors'; 
+import { Colors } from '../constants/Colors'; 
 import SubmitButton from "../components/UI/SubmitButton";
 import CustomInput from "../components/UI/Input";
 
@@ -16,7 +16,7 @@ function AddressFormScreen(){
     const [Phone_Number, setPhone_Number] = useState("");
 
     const handleConfirmAddress = () => {
-        // Обработка сохранения данных
+        // Data saving processing
     };
 
     return(
@@ -47,7 +47,7 @@ function AddressFormScreen(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: Colors.white,
     },
     submitButtonContainer: {
         marginTop: 58, 
@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
         marginTop: 16,
         width: 343,
         borderRadius: 16,
-        borderColor: colors.shadowColor, 
+        borderColor: Colors.whiteShadowColor, 
         borderWidth: 1,
         alignSelf: 'center',
         padding: 16,
-        shadowColor: colors.shadowColor, 
+        shadowColor: Colors.whiteShadowColor, 
         shadowOffset: {
             width: 0,
             height: 4,
@@ -75,15 +75,15 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 1,
         elevation: 4, 
-        backgroundColor: '#fff',
+        backgroundColor: Colors.white,
         marginBottom:8, 
     },
     noteTitle: {
-        color: colors.purple,
+        color: Colors.purple,
         fontFamily: 'Nunito_700Bold',
     },
     noteText: {
-        color: colors.purple,
+        color: Colors.purple,
         fontFamily: 'Nunito_400Regular',
     }
 })

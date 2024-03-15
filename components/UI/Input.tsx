@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Text, TextInput } from "react-native";
+import { Colors } from "../../constants/Colors";
 
 interface CustomInputProps {
     placeholder: string;
@@ -8,11 +9,9 @@ interface CustomInputProps {
 }
 
 function CustomInput({ placeholder, headerText, onChangeText }: CustomInputProps) {
-
     return (
         <View style={styles.container}>
-    
-            <View style={{marginVertical: 8}}>
+            <View style={styles.inputTitleContainer}>
                 <Text style={styles.text}>
                     {headerText}
                 </Text>
@@ -20,7 +19,7 @@ function CustomInput({ placeholder, headerText, onChangeText }: CustomInputProps
             <TextInput
                 placeholder={placeholder}
                 style={styles.input}
-                placeholderTextColor="#9E9E9E"
+                placeholderTextColor={Colors.lihgtGray}
                 onChangeText={onChangeText}
             />
         </View>
@@ -37,7 +36,9 @@ const styles = StyleSheet.create({
     input: {
         width: '100%',
         height: 58,
-        backgroundColor: '#EAEDF4',
+        borderWidth: 1,
+        borderColor: Colors.borderColor,
+        backgroundColor: Colors.inputBackgroundrColor,
         borderRadius: 16,
         paddingHorizontal: 16,
         fontFamily: 'Nunito_400Regular',
@@ -45,6 +46,9 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: 'Nunito_700Bold',
+    },
+    inputTitleContainer: {
+        marginVertical: 8
     }
 });
 

@@ -2,8 +2,8 @@ import React from "react";
 import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 import SubmitButton from "../components/UI/SubmitButton";
 import { useNavigation } from "@react-navigation/native";
-import { ScreenType } from "../App";
-import { colors } from "../constants/Colors";
+import { Colors } from "../constants/Colors";
+import { ScreenEnums } from "../constants/ScreenEnums";
 
 function SponsoredRiddleScreen(){
 
@@ -22,10 +22,10 @@ function SponsoredRiddleScreen(){
                     For sponsored riddles, we offer a blend of digital and non-digital rewards! To ensure you receive your prizes, kindly provide your address. Note: For now this feature is exclusively for US users. Get ready to enjoy the best of both worlds!
                 </Text>
             </View>
-            <SubmitButton placeholder="Add New Address" onPress={() => navigation.navigate(ScreenType.AddressFormScreen)}/>
+            <SubmitButton placeholder="Add New Address" onPress={() => {navigation.navigate(ScreenEnums.AddressFormScreen)}}/>
             <Pressable onPress={()=>{}}>
-                <Text style={styles.goToAllReddles}>
-                        Go To All Reddles
+                <Text style={styles.goToAllRiddles}>
+                    Go To All Riddles
                 </Text>
             </Pressable>
         </View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: '#fff',
+      backgroundColor: Colors.white,
     },
     imageContainer: {
         width: 343,
@@ -50,10 +50,10 @@ const styles = StyleSheet.create({
         height: null,
         resizeMode: 'cover',
     },
-    goToAllReddles: {
+    goToAllRiddles: {
         marginTop: 32,
         marginBottom: 42,
-        color: colors.purple,
+        color: Colors.purple,
         fontFamily: 'Nunito_400Regular'
     },
     titleStyle:{
@@ -64,21 +64,11 @@ const styles = StyleSheet.create({
     },
     mainTextStyle:{
         fontSize: 16, 
-        color: '#828282', 
+        color: Colors.mainTextColor, 
         fontFamily: 'Nunito_400Regular'
     },
     textContainer: {
         marginHorizontal: 12
-    },
-    iconClose: {
-        borderRadius: 100,
-        backgroundColor: '#e1e1e1',
-        padding:2
-    },
-    iconInfo: {
-        borderRadius: 100,
-        borderWidth: 2,
-        borderColor: "black"
     }
 });
 
